@@ -9,3 +9,8 @@ export const cartRoutes = express.Router();
 cartRoutes.get("/cart-items", (req, res) => {
   res.json(cartItems);
 });
+
+cartRoutes.get("/cart-items:id", (req, res) => {
+  const item = cartItems.find((itemObject) => itemObject.id === req.params.id);
+  res.json(item);
+});
